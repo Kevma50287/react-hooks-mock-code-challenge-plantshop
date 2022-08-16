@@ -7,8 +7,6 @@ function NewPlantForm({postPlantData}) {
     price: "0.00"
   })
 
-  console.log(newPlant)
-
   const handleNewPlant = (e) => {
     const key = e.target.name
     const value = e.target.value

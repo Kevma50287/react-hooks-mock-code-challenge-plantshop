@@ -23,11 +23,25 @@ function PlantPage() {
     setSearch(text)
   }
 
+  const updatePlantData = (update) => {
+    const newData = plantData.map((plant)=>{
+      if (plant.id === update.id){
+        return update
+      } else {return plant}
+    })
+    setPlantData(newData)
+  }
+
+  const deletePlant = (id) => {
+    const newArr = plantData.filter((plant) => plant.id !== id)
+    setPlantData(newArr)
+  }
+
   return (
     <main>
       <NewPlantForm postPlantData={postPlantData} />
       <Search handleSearch={handleSearch} />
-      <PlantList plantData={plantData} search={search} />
+      <PlantList plantData={plantData} search={search} updatePlantData={updatePlantData} deletePlant={deletePlant} />
     </main>
   );
 }
